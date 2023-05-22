@@ -18,7 +18,8 @@ const BlogSchema = new mongoose.Schema({
     title:String,
     desc:String,
     like:Number,
-    comment:Number
+    comment:Number,
+    price:Number
 })
 
 
@@ -27,14 +28,15 @@ const BlogModel = mongoose.model('BlogModel', BlogSchema)
 
 //Blog Post
 app.post("/api/blogs", async(req,res)=>{
-    const {imageURL, year, title, desc, like, comment} = req.body;
+    const {imageURL, year, title, desc, like, comment,price} = req.body;
     const newBlog = new BlogModel({
         imageURL:imageURL,
         year:year,
         title:title,
         desc:desc,
         like:like,
-        comment:comment
+        comment:comment,
+        price:price
     })
     await newBlog.save()
     res.status(201).send("blog succesfully created")

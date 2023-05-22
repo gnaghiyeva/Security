@@ -41,6 +41,7 @@ const AddBlog = () => {
     
         <TextField name='like'  onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.like} id="outlined-basic" label="like" variant="outlined"/><br/>
         <TextField name='comment'  onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.comment} id="outlined-basic" label="comment" variant="outlined"/>
+        <TextField name='price'  onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.price} id="outlined-basic" label="price" variant="outlined"/>
          
     <Button variant='contained' color='error'
           disabled={Object.keys(formik.errors).length !== 0 ? true : false}

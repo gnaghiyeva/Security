@@ -2,14 +2,27 @@ import { BASE_URL } from "./base_url";
 import axios from "axios"
 
 //get all blogs
-export const getAllBlogs = async()=>{
+// export const getAllBlogs = async()=>{
+//     let globalData;
+//     await axios.get(`${BASE_URL}/blogs`).then((res)=>{
+//         globalData=res.data
+//     })
+//    return globalData
+// }
+export const getAllBlogs = async(title)=>{
     let globalData;
-    await axios.get(`${BASE_URL}/blogs`).then((res)=>{
-        globalData=res.data
+    let URL;
+    if(!title){
+        URL=BASE_URL+"/blogs";
+    }
+    else{
+        URL = BASE_URL+"/blogs" + `?title=${title}`;
+    }
+    await axios.get(URL).then((res)=>{
+        globalData = res.data.data;
     })
-   return globalData
-}
-
+    return globalData;
+};
 //get blog by id
 export const getBlogByID = async(ID)=>{
     let globalData;

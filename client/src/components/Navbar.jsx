@@ -4,9 +4,11 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import SportsBasketballIcon from '@mui/icons-material/SportsBasketball';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import navbarStyle from "../components/navbar.module.css"
-import { Divider } from '@mui/material';
+import { Button, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useBasketContext } from '../context/basketContext';
 const Navbar = () => {
+    const{basket} = useBasketContext();
   return (
     <>
     <header>
@@ -41,6 +43,7 @@ const Navbar = () => {
                     <li className={navbarStyle.nav2_list2li}><Link to='/add-blog' style={{color:'white', textDecoration:'none'}}>ADD BLOG</Link></li>
                     <li className={navbarStyle.nav2_list2li}>CONTACT</li>
                     <li className={navbarStyle.nav2_list2li}>PAGES</li>
+                    <Button variant='outlined'><Link style={{color:'white','textDecoration':'none'}}>Basket <sup style={{fontWeight:'bold',color:'red'}}>{basket.length}</sup></Link></Button>
                    
                 </ul>
             </div>
